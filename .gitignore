@@ -1,0 +1,22 @@
+# Compiled and generated files
+*.wlf
+*.vcd
+*.vvp
+work/
+transcript
+modelsim.ini
+
+# FPGA/tool output not required for this project
+output_files/
+*.sof
+*.pof
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.bak
+
+# Local logs
+*.log
