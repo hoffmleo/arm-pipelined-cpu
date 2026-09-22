@@ -80,16 +80,16 @@ The design also treats the architectural zero register specially so that it does
 
 The control logic includes support for the course project's ARM-inspired instruction subset, including:
 
-- `ADDI`
-- `ADDS`
-- `SUBS`
-- `LDUR`
-- `STUR`
-- `B`
-- `CBZ`
-- `BLT`
-- `BL`
-- `BR`
+- `ADDI: Add immediate`
+- `ADDS: Add & set flags`
+- `SUBS: Subtract & set flags`
+- `LDUR: Load byte unscaled offset`
+- `STUR: Store register unscaled offset`
+- `B: Branch`
+- `CBZ: Conditional branch if zero`
+- `BLT: Branch if less than`
+- `BL: Branch with link`
+- `BR: Branch to register`
 
 The exact encodings and control outputs are defined in `control.sv`.
 
@@ -133,20 +133,6 @@ The repository also contains reusable structural modules for:
 Files ending in `.do` are ModelSim waveform or compile/run scripts. They add useful signals to the waveform viewer or compile the design and launch the main simulation.
 
 The benchmark selected by `instructmem.sv` is loaded with `$readmemb`. Update the benchmark macro before running a different instruction test program.
-
-## Running the simulation
-
-This project was written for a ModelSim-style SystemVerilog workflow.
-
-1. Install a simulator that supports SystemVerilog and ModelSim `.do` commands.
-2. Place the RTL files and benchmark directory in the expected relative paths.
-3. Review `runlab.do` and remove duplicate compile lines if your simulator reports duplicate definitions.
-4. Confirm that every referenced module is present in the compile list.
-5. Confirm the benchmark selected by `instructmem.sv` exists.
-6. Run the script, or compile the files manually.
-7. Open the relevant `.do` waveform file and inspect the pipeline registers, program counter, control signals, register file, memory, and forwarding selections.
-
-The original project files were preserved as a course-project snapshot. They may require small simulator- or tool-version-specific adjustments before compiling in a new environment.
 
 ## Verification approach
 
