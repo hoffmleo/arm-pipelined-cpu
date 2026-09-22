@@ -44,6 +44,8 @@ PC ---> | IF | --> | ID | --> | EX | --> | MEM | --> | WB |
                     forwarding / write-back paths
 ```
 
+<img src="pipelinedCPU.jpg" width="800" alt="Pipelined CPU Diagram">
+
 ### Instruction Fetch
 
 The program counter selects an instruction from instruction memory. The normal next address is calculated by adding four to the current program counter. Branch logic can replace that address with a conditional, unconditional, or register-based target.
